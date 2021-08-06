@@ -5,11 +5,11 @@ public class Arista <E>{
 	protected int weight; //peso de la arista
 //	protected int label;
 	
-	public Arista(Vertice<E> refDest) {
+	public Arista(Vertice<E> refDest) {//crea una arista sin peso
 		this(refDest,-1);
 	}
 	
-	public Arista(Vertice<E> refDest, int weight) {
+	public Arista(Vertice<E> refDest, int weight) {//crea una arista sin peso
 		this.refDest = refDest;
 		this.weight = weight;
 	}
@@ -27,4 +27,3 @@ public class Arista <E>{
 		else return refDest.data + ", ";
 	}
 }
-

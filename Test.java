@@ -13,16 +13,15 @@ public class Test {
 		num.insertVertice(6);
 		num.insertVertice(7);
 		
-		num.insertArista(1, 2);
-		num.insertArista(1, 3);
-		num.insertArista(2, 4);
-		num.insertArista(3, 2);
-		num.insertArista(3, 4);
-		num.insertArista(3, 5);
-		num.insertArista(5, 6);
-		num.insertArista(5, 7);
+		num.insertArista(1, 2, 8);
+		num.insertArista(1, 3, 1);
+		num.insertArista(2, 4, 2);
+		num.insertArista(3, 2, 5);
+		num.insertArista(3, 4, 7);
+		num.insertArista(3, 5, 5);
+		num.insertArista(5, 6, 9);
+		num.insertArista(5, 7, 3);
 		
 		System.out.println("Grafo ciudades: \n"+num);
 	}
 }
-

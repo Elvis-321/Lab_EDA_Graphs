@@ -16,7 +16,11 @@ public class GrafoLink <E>{
 		this.listaVertice.insertFirst(nuevo);//se inserta el vertice en el grafo
 	}
 	
-	public void insertArista(E verOri, E verDes) {
+	public void insertArista(E verOri, E verDes) {//permite insertar aristas sin peso
+		this.insertArista(verOri, verDes, -1);
+	}
+	
+	public void insertArista(E verOri, E verDes, int weight) {//permite insertar aristas con peso
 		Vertice<E> refOri = this.listaVertice.search(new Vertice<E>(verOri));
 		Vertice<E> refDes = this.listaVertice.search(new Vertice<E>(verDes));
 		
@@ -30,11 +34,10 @@ public class GrafoLink <E>{
 		}
 		
 		//se agrega a la lista de adayacentes el nuevo vertice
-		refOri.listAdj.insertFirst(new Arista<E>(refDes));
-		refDes.listAdj.insertFirst(new Arista<E>(refOri));//hace al grafo no direccional
+		refOri.listAdj.insertFirst(new Arista<E>(refDes,weight));
+		refDes.listAdj.insertFirst(new Arista<E>(refOri,weight));//hace al grafo no direccional
 	}
 	public String toString() {
 		return this.listaVertice.toString();
 	}
 }
-
