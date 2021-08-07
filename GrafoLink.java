@@ -37,7 +37,45 @@ public class GrafoLink <E>{
 		refOri.listAdj.insertFirst(new Arista<E>(refDes,weight));
 		refDes.listAdj.insertFirst(new Arista<E>(refOri,weight));//hace al grafo no direccional
 	}
+	
 	public String toString() {
 		return this.listaVertice.toString();
 	}
+	
+	private void initLabel() {
+		Nodo<Vertice<E>> aux = this.listaVertice.first();
+		for(;aux != null; aux = aux.getNext()) {
+			aux.data.label = 0; // no explorado
+			Nodo<Arista<E>> auxE = aux.data.listAdj.first();
+			for(;auxE != null; auxE = auxE.getNext())
+				auxE.data.label = 0;
+		}
+	}
+
+	private void DFSRec(Vertice<E> v) {
+		v.label = 1;
+		System.out.print(v.data + ", ");
+		Nodo<Arista<E>> e = v.listAdj.first();
+		for(; e != null; e = e.getNext()) {
+			if(e.data.label == 0) {
+				Vertice<E> w = e.data.refDest;
+				if(w.label == 0) {
+					e.data.label = 1;
+					DFSRec(w);
+				}else
+					e.data.label = 2;
+			}
+		}
+	}
+	
+	public void DFS (E data) {
+		Vertice<E> v = this.listaVertice.search(new Vertice<E>(data));
+		if(v == null) {
+			System.out.println("Vertice no existe para hacer DFS");
+			return;
+		}
+		initLabel();
+		DFSRec(v);
+	}
+	
 }

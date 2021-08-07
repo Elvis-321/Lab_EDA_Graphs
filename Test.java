@@ -22,6 +22,10 @@ public class Test {
 		num.insertArista(5, 6, 9);
 		num.insertArista(5, 7, 3);
 		
-		System.out.println("Grafo ciudades: \n"+num);
+		System.out.println("Grafo números: \n"+num);
+		
+		num.DFS(1);
+		System.out.println();
+		num.DFS(4);
 	}
 }

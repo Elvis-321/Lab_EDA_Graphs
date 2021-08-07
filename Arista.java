@@ -3,7 +3,7 @@ public class Arista <E>{
 
 	protected Vertice<E> refDest;
 	protected int weight; //peso de la arista
-//	protected int label;
+	protected int label;
 	
 	public Arista(Vertice<E> refDest) {//crea una arista sin peso
 		this(refDest,-1);

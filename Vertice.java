@@ -3,6 +3,7 @@ public class Vertice<E> {
 
 	protected E data;
 	protected ListaLinked<Arista<E>> listAdj; // guarda las arista vecinas
+	protected int label; // o cuando no este visitado y 1 cuando este visitado
 	
 	public Vertice(E data) {
 		this.data = data;
