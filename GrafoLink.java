@@ -1,7 +1,7 @@
 
 public class GrafoLink <E>{
 
-	protected ListaLinked<Vertice<E>> listaVertice;
+	protected ListaLinked<Vertice<E>> listaVertice; // lista de adyacencia
 	
 	public GrafoLink() {
 		listaVertice = new ListaLinked<Vertice<E>>();
@@ -78,4 +78,12 @@ public class GrafoLink <E>{
 		DFSRec(v);
 	}
 	
+	public boolean estaIncluido(GrafoLink<E> g) {
+		
+		Vertice<E> aux = g.listaVertice.first().data;
+		if(this.listaVertice.search(aux) != null) {
+			return true;
+		}
+		return false;
+	}
 }
